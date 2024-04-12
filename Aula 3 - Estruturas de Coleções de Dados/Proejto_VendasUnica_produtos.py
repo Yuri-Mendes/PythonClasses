@@ -52,28 +52,32 @@ while True:
             print('----------------------------')
 
     elif menu == 5:
-        nome = str(input('\nNome do produto vendido:')).title()
-        qtd_vendida1 = int(input('Quantidade vendida:'))
-        nome = str(input('\nNome do produto vendido:')).title()
-        qtd_vendida2 = int(input('Quantidade vendida:'))
-        for produto in estoque:
-            if produto ['nome'] == nome:
-                if qtd_vendida1 <= produto['quantidade']:
-                    produto['quantidade'] -= qtd_vendida1
-                    total_venda = qtd_vendida1 * produto['preco']
-                    print(f'\nTotal da venda: R${round(total_venda, 2)}')
-                else:
-                    print('\nQuantidade insuficiente em estoque.\n')
-            if produto ['nome'] == nome:
-                if qtd_vendida2 <= produto['quantidade']:
-                    produto['quantidade'] -= qtd_vendida2
-                    total_venda = qtd_vendida2 * produto['preco']
-                    print(f'\nTotal da venda: R${round(total_venda, 2)}')
-                else:
-                    print('\nQuantidade insuficiente em estoque.\n')
+        total_geral_vendas=0
+        while True:
+            nome = str(input('\nNome do produto vendido:')).title()
+            if  nome == 'Fechar':
+                print(f'\nTotal geral das vendas: R${round(total_geral_vendas, 2)}\n')
+                print('Venda finalizada.\n')
                 break
-        else:
-            print('\nProduto não encontrado.\n')
+            qtd_vendida = int(input('Quantidade vendida:'))
+            produto_encontrado = False
+            for produto in estoque:
+                if produto['nome'] == nome:
+                    produto_encontrado = True
+                    if qtd_vendida <= produto['quantidade']:
+                        produto['quantidade'] -= qtd_vendida
+                        total_venda = qtd_vendida * produto['preco']
+                        total_geral_vendas += total_venda
+                        print(f'Total da venda deste produto: R${round(total_venda, 2)}')
+                        print(f'\nTotal geral acumulado: R${round(total_geral_vendas, 2)}\n')
+                        break
+                    else:
+                        print('\nQuantidade insuficiente em estoque.\n')
+                        break
+            if not produto_encontrado:
+                print('\nProduto não encontrado.\n')
+            else:
+                print('Digite "Fechar" para encerrar a venda ou continue adicionando produtos.')
 
     elif menu == 6:
         print('\nSaindo do sistema.\n')
