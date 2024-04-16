@@ -22,4 +22,8 @@ mensagem['To'] = 'yurinmendes61@gmail.com'
 mensagem['Subject'] = 'Aula Email Python'
 corpo= 'Este é o corpo do email.'
 mensagem.attach(MIMEMultipart(corpo, 'plain'))
+server.sendmail('yt_evc@hotmail.com','yurinmendes61@gmail.com',mensagem.as_string())
+server.quit()
+
+
 
