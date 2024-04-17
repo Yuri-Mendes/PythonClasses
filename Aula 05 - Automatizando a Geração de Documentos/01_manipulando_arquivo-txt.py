@@ -14,18 +14,17 @@ Médotodo With - Abre e fecha a conexão do arquivo
 # a-  Adiciona uma informação no arquivo(append)
 
 #a-  Adiciona uma informação no arquivo(append)
-'''
-with open('cliente.txt', 'a') as arquivo:
-    arquivo.write('Aula de Python')
-   ''' 
-    
-    
-#Substitui o conteudo do arquivo
-with open('cliente.txt', 'w') as arquivo:
-    arquivo.write('Olá, seja bem vindo a aula de Python')
+# with open('cliente.txt', 'a') as arquivo:
+#     arquivo.write('Aula de Python')
 
+#Substitui o conteudo do arquivo #w - adiciona um arquivo txt novo, e substitui o conteúdo de um arquivo
+# with open('text.txt', 'w') as arquivo:
+#     arquivo.write('Olá, seja bem vindo a aula de Python')
 
+#Lendo o arquivo
+with open('cliente.txt', 'r') as arquivo:
+    linhas=arquivo.readlines()
+    for linha in linhas:
+        print(linha)
 
-
-# #Lendo o arquivo
 
