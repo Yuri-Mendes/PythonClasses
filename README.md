@@ -1,2 +1,2 @@
 # Python Classes
-Estudos e aulas de Python
+Aulas, estudos, desafios e projetos utilizando a linguagem Python.
